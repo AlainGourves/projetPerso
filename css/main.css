@@ -6,12 +6,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
+  scroll-behavior: smooth;
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
 }
 
 img {
