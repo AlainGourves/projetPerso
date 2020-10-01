@@ -1,0 +1,54 @@
+@import '_vars';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+p {
+    font-weight: 200;
+    line-height: 1.4;
+    font-size: 1.2em;
+    color: rgb(150, 150, 150);
+    font-style: oblique;
+    font-stretch: condensed;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 1.6em;
+    line-height: 1;
+    color: rgb(94, 145, 193);
+}
+
+
+a[rel *="external"]::after {
+    content: '\f08e';
+    display: inline-block;
+    width: 1em;
+    margin-left: .4em;
+    font-family: "fontello";
+    font-style: normal;
+    font-size: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+    text-decoration: none;
+    color: inherit;
+
+}
