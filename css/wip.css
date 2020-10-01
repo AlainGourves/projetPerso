@@ -3,6 +3,7 @@
     height: 400px;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
 .gallery-img{
@@ -18,6 +19,7 @@
     justify-content: space-between;
     align-items: center;
     padding: .3rem .6rem;
+    width: 50%;
 }
 
 
@@ -39,10 +41,8 @@
     filter: brightness(.7);
     transition: all .5s;
 }
-#navGal a:hover{
-    filter: brightness(1);
-    /* box-shadow: 0 0 1px 2px hsla(0, 0%, 100%, 0.75); */
-}
-#navGal a:active{
-    box-shadow: 0 0 1px 2px hsla(0, 0%, 100%, 0.75);
+#navGal a:hover,
+#navGal a.selected{
+    filter: brightness(1) sepia(1) hue-rotate(180deg);
+    box-shadow: 0 0 1px 2px hsla(0, 0%, 100%, 0.85);
 }
