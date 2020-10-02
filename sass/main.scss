@@ -60,3 +60,13 @@ a[rel *="external"]::after {
     color: inherit;
 
 }
+
+
+/* thumbails galerie
+@for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      background-position: calc(#{$i} * 60px);
+    }
+  }
+
+  */
