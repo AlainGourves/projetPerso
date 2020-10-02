@@ -2,7 +2,7 @@
 
 const gallery = document.querySelector('#gallery');
 const galleryImgs =gallery.querySelectorAll('img');
-const galleryNav = document.querySelector('#navGal');
+const galleryNav = document.querySelector('#navGal2');
 const galleryNavLinks = galleryNav.querySelectorAll('a');
 let gallerySelected = 0; // numéro photo affichée
 
@@ -14,10 +14,11 @@ function updateGallNav(x) {
 
 function scrollbars(){
     // ajouter la largeur de l'ascenceur à la largeur du slider
+    console.log(gallery.style.width)
     let w = gallery.offsetWidth - gallery.clientWidth;
     if(w > 0) {
         let w2 = parseInt(window.getComputedStyle(gallery)['width']);
-        gallery.style.setProperty('width', w2 + w +'px');
+        gallery.style.width = w2 + w +'px';
     }
 }
 
