@@ -29,7 +29,7 @@ p {
     font-stretch: condensed;
 }
 
-h1,
+
 h2,
 h3 {
     font-size: 1.6em;
@@ -37,6 +37,14 @@ h3 {
     color: rgb(94, 145, 193);
 }
 
+h1{
+    font-size: 5rem;
+    background-image: linear-gradient(to bottom, rgb(94, 145, 193), rgb(161, 12, 199));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
 
 a[rel *="external"]::after {
     content: '\f08e';

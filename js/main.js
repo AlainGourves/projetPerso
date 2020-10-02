@@ -1,3 +1,5 @@
+'use strict'
+
 const gallery = document.querySelector('#gallery');
 const galleryImgs =gallery.querySelectorAll('img');
 const galleryNav = document.querySelector('#navGal');
@@ -10,11 +12,13 @@ function updateGallNav(x) {
     gallerySelected = x;
 }
 
-function bars(){
+function scrollbars(){
+    // ajouter la largeur de l'ascenceur à la largeur du slider
     let w = gallery.offsetWidth - gallery.clientWidth;
-    let w2 = window.getComputedStyle(gallery)['width'];
-    console.log(w, 'px');
-    console.log(w2, 'px');
+    if(w > 0) {
+        let w2 = parseInt(window.getComputedStyle(gallery)['width']);
+        gallery.style.setProperty('width', w2 + w +'px');
+    }
 }
 
 let galleryObserver = new IntersectionObserver((entries, observer) => {
