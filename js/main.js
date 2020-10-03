@@ -1,10 +1,17 @@
 'use strict'
 
+// Gestion menu bar
+const nav = document.querySelector('#wrapper nav');
+const navLinks = nav.querySelectorAll('a');
+
+// Slider
 const gallery = document.querySelector('#gallery');
-const galleryImgs =gallery.querySelectorAll('img');
-const galleryNav = document.querySelector('#navGal');
-const galleryNavLinks = galleryNav.querySelectorAll('a');
-let gallerySelected = 0; // numéro photo affichée
+if (gallery) {
+    const galleryImgs = gallery.querySelectorAll('img');
+    const galleryNav = document.querySelector('#navGal');
+    const galleryNavLinks = galleryNav.querySelectorAll('a');
+    let gallerySelected = 0; // index photo affichée dans le slider
+}
 
 function updateGallNav(x) {
     galleryNavLinks[gallerySelected].classList.remove('selected');
@@ -12,12 +19,12 @@ function updateGallNav(x) {
     gallerySelected = x;
 }
 
-function scrollbars(){
-    // ajouter la largeur de l'ascenceur à la largeur du slider
+function scrollbars() {
+    // ajouter au besoin la largeur de l'ascenceur à celle du slider
     let w = gallery.offsetWidth - gallery.clientWidth;
-    if(w > 0) {
+    if (w > 0) {
         let w2 = parseInt(window.getComputedStyle(gallery)['width']);
-        gallery.style.setProperty('width', w2 + w +'px');
+        gallery.style.setProperty('width', w2 + w + 'px');
     }
 }
 
@@ -29,23 +36,35 @@ let galleryObserver = new IntersectionObserver((entries, observer) => {
         }
     });
 }, {
-    threshold: [ 0.1, 0.5, 0.9, 1 ],
+    threshold: [0.1, 0.5, 0.9, 1],
     root: gallery
 });
 
 
 window.addEventListener("load", e => {
-    galleryNavLinks[gallerySelected].classList.add('selected');
-
-    galleryImgs.forEach(e => {
-        galleryObserver.observe(e);
+    // Gestion menu haut
+    nav.addEventListener("click", e => {
+        navLinks.forEach(e => {
+            if (e.classList.contains('selected')) {
+                e.classList.remove('selected');
+            };
+        });
+        e.target.classList.add('selected');
     });
 
-    galleryNav.addEventListener("click", e => {
-        let t = e.target.parentElement;
-        let x = Array.from(galleryNavLinks).findIndex((node) => node === t);
-        if (x != -1) {
-            updateGallNav(x);
-        }
-    });
+    if (gallery) {
+        galleryNavLinks[gallerySelected].classList.add('selected');
+
+        galleryImgs.forEach(e => {
+            galleryObserver.observe(e);
+        });
+
+        galleryNav.addEventListener("click", e => {
+            let t = e.target.parentElement;
+            let x = Array.from(galleryNavLinks).findIndex((node) => node === t);
+            if (x != -1) {
+                updateGallNav(x);
+            }
+        });
+    }
 });

@@ -1,1 +1,54 @@
+@charset "UTF-8";
 /* Responsive shit */
+@media (min-width: 768px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  #menu {
+    background: var(--background);
+  }
+
+  #menu nav {
+    all: unset;
+    /* RàZ des déclarations précédentes */
+    /* display: flex; */
+  }
+
+  #menu nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: initial;
+  }
+
+  #menu nav a {
+    opacity: 1;
+    position: relative;
+  }
+
+  #menu nav a::after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 4px;
+    right: 0;
+    left: 0;
+    bottom: -0.75em;
+    background: #e069e4;
+    transform: scale(0, 1);
+    transition: transform var(--rebond) 250ms;
+  }
+
+  #menu nav a:hover::after,
+#menu nav a:focus::after,
+#menu nav a.selected::after {
+    transform: scale(1, 1);
+  }
+}
+@media (min-width: 1200px) {
+  .fluid {
+    max-width: 1400px;
+    margin: auto;
+  }
+}

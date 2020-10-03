@@ -5,35 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Gateway Arch</title>
+    <meta name="description" content="Le Gateway Arch de Saint-Louis (Missouri), historique et caractérisques du bâtiment">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">  
+    <link rel="apple-touch-icon" href="/gateway-arch.png">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/fontello.css">
     <link rel="stylesheet" href="./css/wip.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap">
 </head>
 
 <body>
-    <main>
-        <section>
-            <article>
-                <h1 class="">Ceci est mon titre Gateway Arch (Righteous)</h1>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quos recusandae excepturi officia sunt
-                    consequatur? Reprehenderit, doloremque, rem quae at atque fugiat praesentium sed ut omnis qui animi
-                    consectetur cupiditate porro.</p>
-            </article>
-        </section>
-    </main>
-<a href="slider.html">Slider Go!</a>
+
+
+    <header class="fluid">
+        <picture>
+            <source srcset="./img/gateway-arch-large.jpg" media="(min-width: 1200px)">
+            <source srcset="./img/gateway-arch-small.jpg" media="(max-width: 800px)">
+            <img src="./img/gateway-arch-medium.jpg" alt="" />
+        </picture>
+        <div class="hero">
+            <h1>The Gateway Arch</h1>
+            <h2>La porte de l'Ouest</h2>
+        </div>
+    </header>
+
+
+    <div id="wrapper" class="fluid">
+        <div id="menu">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <nav>
+                <ul>
+                    <li><a href="#un" class="selected">Un</a></li>
+                    <li><a href="#deux">Deux</a></li>
+                    <li><a href="#trois">Trois</a></li>
+                    <li><a href="#quatre">Quatre</a></li>
+                </ul>
+            </nav>
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+        </div>
+
+        <main>
+            <div class="contenu">
+                <section id="un">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eum voluptates iure ex ad quibusdam, repudiandae delectus minus totam aspernatur quia dolor a asperiores corporis voluptatibus quaerat natus, magni reiciendis.</p>
+                </section>
+                <section id="deux">
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe, labore possimus delectus facere inventore beatae ullam velit expedita? Atque, soluta! Ea recusandae rem distinctio accusamus provident fugit magni laudantium ipsa?</p>
+                </section>
+                <section id="trois">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam suscipit maxime facere aspernatur dolores inventore, quidem dolor a exercitationem accusantium mollitia tempore saepe esse, autem nam. Ratione consectetur quo nisi.</p>
+                </section>
+                <section id="quatre">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam nihil, sit neque nulla soluta dolorem expedita incidunt iste! Ullam tempora minus velit repellat id? Ea odit adipisci reiciendis sapiente dolore.</p>
+                </section>
+            </div>
+            <picture>
+                <source srcset="./img/gateway-arch-large.jpg" media="(min-width: 1200px)">
+                <source srcset="./img/gateway-arch-small.jpg" media="(max-width: 800px)">
+                <img src="./img/gateway-arch-medium.jpg" alt="" />
+            </picture>
+        </main>
+    </div>
     <footer>
-        <ul id="references">
-            <li><a href="https://fr.wikipedia.org/wiki/Gateway_Arch" rel="external"><i
-                        class="icon-wikipedia-w"></i>Article Wikipedia</a></li>
+        <nav>
+            <ul>
+                <li><a href="#un">Un</a></li>
+                <li><a href="#deux">Deux</a></li>
+                <li><a href="#trois">Trois</a></li>
+                <li><a href="#quatre">Quatre</a></li>
+            </ul>
+        </nav>
+        <article>
+            <h2>Sources utilisées :</h2>
+            <ul id="references">
+                <li><a href="https://fr.wikipedia.org/wiki/Gateway_Arch" rel="external"><i
+                    class="icon-wikipedia-w"></i>Article Wikipedia</a></li>
             <li><a href="https://youtu.be/mI77W2PjyKI" rel="external"><i class="icon-youtube"></i>Documentaire sur la
                     construction de la Gateway Arch</a></li>
             <li><a href="https://youtu.be/kkNGdzo_3EA" rel="external"><i class="icon-youtube"></i>La Sagrada Familia
-                    (avec explication de la courbe de la chaînette)</a></li>
-            <li><i class="icon-book"></i><cite>Mathématiques et Architecture</cite>, éditions POLE (2017)</li>
-        </ul>
+                (avec explication de la courbe de la chaînette)</a></li>
+                <li><i class="icon-book"></i><cite>Mathématiques et Architecture</cite>, éditions POLE (2017)</li>
+            </ul>
+        </article>
+
     </footer>
 
     <script src="./js/main.js"></script>
