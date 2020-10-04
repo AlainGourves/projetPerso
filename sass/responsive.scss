@@ -1,18 +1,17 @@
 /* Responsive shit */
 
-// Medium devices (tablets, 768px and up)
+/* -------------------- Medium devices (tablets, 768px and up) -------------------- */
 @media (min-width: 768px) {
     .nav-toggle-label {
         display: none;
     }
 
     #menu{
-        background: var(--background);
+        background: var(--vertDark);
     }
 
     #menu nav {
         all: unset; /* RàZ des déclarations précédentes */
-        /* display: flex; */
     }
     
     #menu nav ul {
@@ -35,7 +34,7 @@
         right: 0;
         left: 0;
         bottom: -.75em;
-        background: rgb(224, 105, 228);
+        background: var(--pruneDark);
         transform: scale(0, 1);
         transition: transform var(--rebond) 250ms;
     }
@@ -47,12 +46,12 @@
     }
 }
 
-// Large devices (desktops, 992px and up)
+/* -------------------- Large devices (desktops, 992px and up) -------------------- */
 @media (min-width: 992px) {
     
 }
 
-// Extra large devices (large desktops, 1200px and up)
+/* -------------------- Extra large devices (large desktops, 1200px and up  ------- */
 @media (min-width: 1200px) {
     .fluid{
         max-width: 1400px;

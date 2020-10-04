@@ -4,6 +4,21 @@
 const nav = document.querySelector('#wrapper nav');
 const navLinks = nav.querySelectorAll('a');
 
+// Video
+const myVid = document.querySelector('video');
+let isPaused = false;
+
+let videoObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.intersectionRatio < .6 && !myVid.paused) {
+            myVid.pause();
+            isPaused = true;
+        }
+    });
+}, {
+    threshold: [0.25, 0.5, 0.75,],
+});
+
 // Slider
 const gallery = document.querySelector('#gallery');
 if (gallery) {
@@ -51,7 +66,9 @@ window.addEventListener("load", e => {
         });
         e.target.classList.add('selected');
     });
-
+    // Video
+    videoObserver.observe(myVid);
+    // Slider
     if (gallery) {
         galleryNavLinks[gallerySelected].classList.add('selected');
 

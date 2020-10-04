@@ -1,7 +1,20 @@
 'use strict'; // Gestion menu bar
 
 var nav = document.querySelector('#wrapper nav');
-var navLinks = nav.querySelectorAll('a'); // Slider
+var navLinks = nav.querySelectorAll('a'); // Video
+
+var myVid = document.querySelector('video');
+var isPaused = false;
+var videoObserver = new IntersectionObserver(function (entries, observer) {
+  entries.forEach(function (entry) {
+    if (entry.intersectionRatio < .6 && !myVid.paused) {
+      myVid.pause();
+      isPaused = true;
+    }
+  });
+}, {
+  threshold: [0.25, 0.5, 0.75]
+}); // Slider
 
 var gallery = document.querySelector('#gallery');
 
@@ -55,7 +68,9 @@ window.addEventListener("load", function (e) {
       ;
     });
     e.target.classList.add('selected');
-  });
+  }); // Video
+
+  videoObserver.observe(myVid); // Slider
 
   if (gallery) {
     galleryNavLinks[gallerySelected].classList.add('selected');
