@@ -20,21 +20,24 @@
     justify-content: space-between;
     align-items: center;
     margin-right: initial;
+    padding: 0 10vw;
   }
 
   #menu nav a {
+    font-size: 1.2em;
     opacity: 1;
     position: relative;
   }
 
-  #menu nav a::after {
+  #menu nav a::after,
+footer nav a::after {
     content: "";
     display: block;
     position: absolute;
     height: 4px;
     right: 0;
     left: 0;
-    bottom: -0.75em;
+    bottom: -0.4em;
     background: var(--pruneDark);
     transform: scale(0, 1);
     transition: transform var(--rebond) 250ms;
@@ -42,15 +45,105 @@
 
   #menu nav a:hover::after,
 #menu nav a:focus::after,
-#menu nav a.selected::after {
+#menu nav a.selected::after,
+footer nav a:hover::after,
+footer nav a:focus::after {
     transform: scale(1, 1);
+  }
+
+  .hero {
+    left: initial;
+    bottom: initial;
+    top: 2em;
+  }
+  .hero h1 {
+    font-size: 3.6em;
+  }
+  .hero h2 {
+    font-size: 3.4em;
+  }
+
+  .timeline {
+    background-image: linear-gradient(to right, transparent calc(50% - 3px), var(--grisLight) 0, var(--grisLight) calc(50% + 6px), transparent 0);
+  }
+
+  .topic {
+    width: 40%;
+    max-width: 350px;
+  }
+  .topic .date {
+    position: absolute;
+    display: block;
+    width: 6em;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5em 0.8em;
+    border-radius: 6px;
+    background-color: var(--bleuLight);
+    text-align: center;
+  }
+  .topic:nth-of-type(2n) {
+    left: 50%;
+    transform: translateX(18%);
+  }
+  .topic:nth-of-type(2n)::after {
+    left: calc(-18% - 6px);
+  }
+  .topic:nth-of-type(2n) .date {
+    right: 140%;
+  }
+  .topic:nth-of-type(2n+1) {
+    left: 50%;
+    transform: translateX(-118%);
+  }
+  .topic:nth-of-type(2n+1)::before {
+    border-style: solid;
+    right: -14px;
+    left: initial;
+    border-color: transparent transparent transparent var(--bleu2);
+    border-width: 8px 0 8px 14px;
+  }
+  .topic:nth-of-type(2n+1)::after {
+    right: calc(-18% - 6px);
+    left: initial;
+  }
+  .topic:nth-of-type(2n+1) .date {
+    left: 140%;
+  }
+
+  main picture img {
+    height: 20em;
+  }
+
+  footer nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  footer nav a {
+    position: relative;
   }
 }
 /* -------------------- Large devices (desktops, 992px and up) -------------------- */
+@media (min-width: 992px) {
+  .hero h1 {
+    font-size: 4em;
+  }
+  .hero h2 {
+    font-size: 3.8em;
+  }
+}
 /* -------------------- Extra large devices (large desktops, 1200px and up  ------- */
 @media (min-width: 1200px) {
   .fluid {
     max-width: 1400px;
     margin: auto;
+  }
+
+  .hero h1 {
+    font-size: 5em;
+  }
+  .hero h2 {
+    font-size: 4.8em;
   }
 }

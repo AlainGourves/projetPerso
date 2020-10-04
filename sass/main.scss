@@ -1,5 +1,6 @@
 @import '_vars';
 
+
 /* -------------------- TABLE
 *   - VARIABLES
 *   - GLOBAL
@@ -9,6 +10,7 @@
 *   - MENU BAR
 *   -- Burger
 *   - MAIN
+*   -- Timeline
 *   - CAROUSEL
 *   - FOOTER
 *   - ANIMATION
@@ -40,15 +42,6 @@
     --degMetal1: linear-gradient(-90deg, var(--grisDark) var(--grisLight) 40%, var(--bleuLight) 60%, var(--grisDark));
 
     --rebond : cubic-bezier(.33, 0, .7, 1.5);
-    
-    
-    
-    --color_1:rgba(204,213,0,1);
-    --color_2:rgba(37,37,37,1);
-    --color_3:rgba(37,37,37,0.75);
-    --background: rgba(0, 214, 170, .85);
-    --primary: hsl(68, 82%, 68%);
-    --secondary: hsl(248, 82%, 68%);
 }
 
 
@@ -85,6 +78,7 @@ nav ul {
 
 ul a{
     text-decoration: none;
+    display: inline-block;
 }
 
 video{
@@ -104,6 +98,7 @@ a[rel *="external"]::after {
     line-height: 1em;
     vertical-align: middle;
     color: inherit;
+    opacity: .6;
 }
 
 
@@ -114,6 +109,11 @@ a[rel *="external"]::after {
 .fluid{
     width: 100%;
     max-width: 1400px;
+}
+
+
+.smallCaps{
+    font-variant: small-caps;
 }
 
 /*
@@ -130,21 +130,61 @@ h2{
 }
 
 #menu nav a {
-    font-size: 1.2rem;
+    font-size: 1em;
     font-weight: 400;
     text-transform: uppercase;
     color: white;
 }
 
-section p{
-    font-weight: 200;
-    line-height: 1.4;
-    font-size: 1em;
-    color: var(--grisDark);
+section{
+    h1{
+        font-size: 1.8em;
+        line-height: 1;
+        margin-bottom: .4em;
+    }
+    
+    &:nth-of-type(2n) h1{
+        color: var(--vertDark);
+        text-align: right;
+    }
+
+    &:nth-of-type(2n +1) h1{
+        color: var(--bleuDark);
+    }
+
+    p{
+       font-weight: 200;
+       line-height: 1.4;
+       font-size: 1em;
+       color: var(--grisDark);
+    }
 }
 
-.smallCaps{
-    font-variant: small-caps;
+.topic{
+    h2{
+        font-family: "Work Sans";
+        font-weight: 500;
+        font-size: 1em;
+    }
+    p{
+        font-size: .8em;
+        color: white;
+    }
+}
+
+footer{
+    h2{
+        font-family: "Work Sans";
+        font-style: oblique;
+        font-weight: 400;
+        font-size: 1.2em;
+    }
+
+    nav a{
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+    }
 }
 /*
 ---------------------------------------------------------------------------- HEADER
@@ -220,17 +260,18 @@ nav ul {
 }
 
 #menu nav li {
-    margin: 0 1em 1em 1em;
+    margin: 1em;
 }
 
 #menu nav a {
+    text-shadow: 1px 1px 1px rgba(0,0,0,.25);
     opacity: 0;
     transition: opacity 150ms ease-in-out;
 }
 
-#menu nav a:hover {
-    color: #000;
-}
+// #menu nav a:hover {
+//     color: var(--pruneDark);
+// }
 
 /*  -------------------------------------------------------------- Burger */
 
@@ -310,8 +351,8 @@ nav ul {
 ---------------------------------------------------------------------------- MAIN
 */
 
-main{
-}
+// main{
+// }
 
 .contenu {
     background-color: white;
@@ -319,8 +360,7 @@ main{
 
 section{
     position: relative;
-    padding: 8em 2em;
-    min-height: 50vh;
+    padding: 8em 10vw;
 }
 
 section::after {
@@ -362,7 +402,78 @@ main picture img {
     object-position: center bottom;
 }
 
+/*  -------------------------------------------------------------- Timeline */
 
+.timeline{
+    position: relative;
+    width: 100%;
+    height: 33vh;
+    overflow: hidden auto;
+    padding: .3em .5em;
+    background-color: white;
+    background-image: linear-gradient(to right, 
+                transparent calc(1em - #{$larg-regle/2}),
+                var(--grisLight) 0,
+                var(--grisLight) calc(1em + #{$larg-regle}),
+                transparent 0);
+    background-position: top;
+    background-size:  100% 100%;
+}
+
+.topic{
+    position: relative;
+    width: 80%;
+    left: 2em;
+    padding: .5em .8em;
+    margin-top: 3em;
+    border-radius: 6px;
+    z-index: 3;
+    background-color: var(--bleu2);
+
+    p{
+        margin-top: .4em;
+    }
+
+    .date{
+        position: absolute;
+        display: inline-block;
+        top: -2rem;
+        width: 100%;
+        margin-left: -1em;
+        font-weight: 500;
+        font-style: oblique;
+        color: var(--pruneDark);
+    }
+
+    &::before,
+    &::after{
+        position: absolute;
+        content: '';
+        display: block;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before{
+        // la flèche
+        width: 0;
+        height: 0;
+        left: -14px;
+        border-style: solid;
+        border-color: transparent var(--bleu2) transparent transparent;
+        border-width: 8px 14px 8px 0;
+    }
+
+    &::after{
+        // le point sur la règle
+        width: $larg-point;
+        height: $larg-point;
+        left: calc(-2em + #{$larg-point/2});
+        background-color: white;
+        border: #{$larg-point/2} solid var(--pruneDark);
+        border-radius: 50%;
+    }
+}
 /*
 ---------------------------------------------------------------------------- CAROUSEL
 */
@@ -446,13 +557,48 @@ main picture img {
 ---------------------------------------------------------------------------- FOOTER
 */
 footer{
-    background-color: var(--color_1);
-}
+    background-color: var(--grisDark);
 
-footer nav ul{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    nav ul{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        height: 4em;
+        text-align: center;
+        background-color: var(--vertDark);
+    }
+
+    nav a{
+        padding: .4em .2em;
+    }
+
+    article{
+        padding: 1em;
+        color: white;
+
+        ul{
+            margin-left: 1.4em;
+        }
+
+        [class^="icon-"]{
+            margin-left: -1.6em;
+        }
+
+        h2{
+            margin-bottom: .8em;
+        }
+
+        a{
+            color: white;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+#references li{
+    margin-bottom: .25em
 }
 /*
 ---------------------------------------------------------------------------- ANIMATION
