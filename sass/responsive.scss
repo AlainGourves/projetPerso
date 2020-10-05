@@ -1,6 +1,14 @@
 @import '_vars';
 /* Responsive shit */
 
+
+@media (min-width: 530px) {
+
+    #navGal{
+      width: 426px;
+    }
+}
+  
 /* -------------------- Medium devices (tablets, 768px and up) -------------------- */
 @media (min-width: 768px) {
     .nav-toggle-label {
@@ -144,7 +152,11 @@
 
 /* -------------------- Large devices (desktops, 992px and up) -------------------- */
 @media (min-width: 992px) {
-    .hero{
+    
+    html{
+        font-size: 18px;
+    }
+        .hero{
         h1{
             font-size: 4em;
         }
@@ -154,10 +166,29 @@
         }
     }
 
+    #batiment{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        article{
+            width: 50%;
+
+            &:first-of-type{
+                order: 2;
+            }
+        }
+    }
 }
 
 /* -------------------- Extra large devices (large desktops, 1200px and up  ------- */
 @media (min-width: 1200px) {
+
+    html{
+        font-size: 22px;
+    }
+
     .fluid{
         max-width: 1400px;
         margin: auto;

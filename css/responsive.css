@@ -1,5 +1,10 @@
 @charset "UTF-8";
 /* Responsive shit */
+@media (min-width: 530px) {
+  #navGal {
+    width: 426px;
+  }
+}
 /* -------------------- Medium devices (tablets, 768px and up) -------------------- */
 @media (min-width: 768px) {
   .nav-toggle-label {
@@ -126,15 +131,36 @@ footer nav a:focus::after {
 }
 /* -------------------- Large devices (desktops, 992px and up) -------------------- */
 @media (min-width: 992px) {
+  html {
+    font-size: 18px;
+  }
+
   .hero h1 {
     font-size: 4em;
   }
   .hero h2 {
     font-size: 3.8em;
   }
+
+  #batiment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  #batiment article {
+    width: 50%;
+  }
+  #batiment article:first-of-type {
+    order: 2;
+  }
 }
 /* -------------------- Extra large devices (large desktops, 1200px and up  ------- */
 @media (min-width: 1200px) {
+  html {
+    font-size: 22px;
+  }
+
   .fluid {
     max-width: 1400px;
     margin: auto;

@@ -116,7 +116,8 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-family: "Righteous", sans-serif;
 }
 
@@ -132,24 +133,29 @@ section h1 {
   line-height: 1;
   margin-bottom: 0.4em;
 }
-section:nth-of-type(2n) h1 {
+section:nth-of-type(2n) h1, section:nth-of-type(2n) h2 {
   color: var(--vertDark);
   text-align: right;
 }
-section:nth-of-type(2n +1) h1 {
+section:nth-of-type(2n +1) h1, section:nth-of-type(2n +1) h2 {
   color: var(--bleuDark);
 }
 section p {
-  font-weight: 200;
+  font-weight: 300;
   line-height: 1.4;
   font-size: 1em;
   color: var(--grisDark);
+}
+section em {
+  font-weight: 600;
+  font-style: normal;
 }
 
 .topic h2 {
   font-family: "Work Sans";
   font-weight: 500;
   font-size: 1em;
+  color: var(--grisDark);
 }
 .topic p {
   font-size: 0.8em;
@@ -381,14 +387,11 @@ main picture img {
 /*  -------------------------------------------------------------- Scene3D */
 .animArche {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 100%;
-  max-height: 100%;
-  perspective: 30em;
+  width: 100%;
+  height: 10em;
+  perspective: 40em;
   perspective-origin: 50% 25%;
-  margin: 10em auto 2em;
+  margin: 12em auto 4em;
 }
 
 /* point perspective origin /
@@ -506,6 +509,13 @@ main picture img {
 }
 
 /*  -------------------------------------------------------------- Timeline */
+.chrono {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  text-align: center;
+  color: var(--bleu2) !important;
+}
+
 .timeline {
   width: 100%;
   height: 33vh;
@@ -570,6 +580,12 @@ main picture img {
 /*
 ---------------------------------------------------------------------------- CAROUSEL
 */
+#carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #gallery {
   width: 100%;
   max-width: 426px;
@@ -589,13 +605,14 @@ main picture img {
 #navGal {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  width: 100%;
+  background-color: var(--grisDark);
 }
 #navGal ul {
   list-style-type: none;
-  background-color: var(--grisDark);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 100%;
+  width: inherit;
 }
 #navGal li,
 #navGal a {
@@ -664,6 +681,7 @@ main picture img {
 */
 footer {
   background-color: var(--grisDark);
+  padding-bottom: 3em;
 }
 footer nav ul {
   display: grid;
@@ -698,6 +716,19 @@ footer article a:hover {
 
 #references li {
   margin-bottom: 0.25em;
+}
+
+.copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1.4em;
+  font-weight: 800;
+  background-image: linear-gradient(to top, var(--vertDark), var(--bleuBase));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
 /*
