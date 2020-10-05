@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 /* -------------------- TABLE
 *   - VARIABLES
 *   - GLOBAL
@@ -18,7 +19,7 @@
 ---------------------------------------------------------------------------- VARIABLES
 */
 :root {
-  --fondPage:hsl(45, 21%, 93%);
+  --fondPage: hsl(45, 21%, 93%);
   --bleuBase: hsl(206, 100%, 75%);
   --bleuLight: hsl(193, 100%, 91%);
   --bleu1: hsl(205, 59%, 57%);
@@ -133,19 +134,25 @@ section h1 {
   line-height: 1;
   margin-bottom: 0.4em;
 }
-section:nth-of-type(2n) h1, section:nth-of-type(2n) h2 {
+
+section:nth-of-type(2n) h1,
+section:nth-of-type(2n) h2 {
   color: var(--vertDark);
   text-align: right;
 }
-section:nth-of-type(2n +1) h1, section:nth-of-type(2n +1) h2 {
+
+section:nth-of-type(2n +1) h1,
+section:nth-of-type(2n +1) h2 {
   color: var(--bleuDark);
 }
+
 section p {
   font-weight: 300;
   line-height: 1.4;
   font-size: 1em;
   color: var(--grisDark);
 }
+
 section em {
   font-weight: 600;
   font-style: normal;
@@ -157,6 +164,7 @@ section em {
   font-size: 1em;
   color: var(--grisDark);
 }
+
 .topic p {
   font-size: 0.8em;
   color: white;
@@ -168,6 +176,7 @@ footer h2 {
   font-weight: 400;
   font-size: 1.2em;
 }
+
 footer nav a {
   font-weight: 600;
   text-transform: uppercase;
@@ -308,25 +317,25 @@ nav ul {
   top: 10px;
 }
 
-#menu .nav-toggle:checked ~ nav {
+#menu .nav-toggle:checked~nav {
   transform: scale(1, 1);
 }
 
-#menu .nav-toggle:checked ~ nav a {
+#menu .nav-toggle:checked~nav a {
   opacity: 1;
   transition: opacity 250ms ease-in-out 250ms;
 }
 
 /* animation burger */
-#menu .nav-toggle:checked ~ .nav-toggle-label span {
+#menu .nav-toggle:checked~.nav-toggle-label span {
   transform: rotate(45deg);
 }
 
-#menu .nav-toggle:checked ~ .nav-toggle-label span::before {
+#menu .nav-toggle:checked~.nav-toggle-label span::before {
   transform: rotate(90deg) translate(10px);
 }
 
-#menu .nav-toggle:checked ~ .nav-toggle-label span::after {
+#menu .nav-toggle:checked~.nav-toggle-label span::after {
   transform: rotate(90deg) translate(-10px);
 }
 
@@ -341,6 +350,7 @@ section {
   position: relative;
   padding: 8em 10vw;
 }
+
 section p {
   margin-bottom: 1em;
 }
@@ -537,12 +547,15 @@ main picture img {
   z-index: 3;
   background-color: var(--bleu2);
 }
+
 .topic:last-of-type {
   margin-bottom: 3em;
 }
+
 .topic p {
   margin-top: 0.4em;
 }
+
 .topic .date {
   position: absolute;
   display: inline-block;
@@ -553,13 +566,16 @@ main picture img {
   font-style: oblique;
   color: var(--pruneDark);
 }
-.topic::before, .topic::after {
+
+.topic::before,
+.topic::after {
   position: absolute;
   content: "";
   display: block;
   top: 50%;
   transform: translateY(-50%);
 }
+
 .topic::before {
   width: 0;
   height: 0;
@@ -568,6 +584,7 @@ main picture img {
   border-color: transparent var(--bleu2) transparent transparent;
   border-width: 8px 14px 8px 0;
 }
+
 .topic::after {
   width: 6px;
   height: 6px;
@@ -608,22 +625,26 @@ main picture img {
   width: 100%;
   background-color: var(--grisDark);
 }
+
 #navGal ul {
   list-style-type: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: inherit;
 }
+
 #navGal li,
 #navGal a {
   display: inline-block;
   border-radius: 4px;
 }
+
 #navGal li {
   justify-self: center;
   align-self: center;
   padding: 0.2em;
 }
+
 #navGal a {
   width: 60px;
   height: 60px;
@@ -633,6 +654,7 @@ main picture img {
   filter: brightness(0.7);
   transition: all 0.5s;
 }
+
 #navGal a:hover,
 #navGal a:focus,
 #navGal a.selected {
@@ -683,6 +705,7 @@ footer {
   background-color: var(--grisDark);
   padding-bottom: 3em;
 }
+
 footer nav ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -691,25 +714,32 @@ footer nav ul {
   text-align: center;
   background-color: var(--vertDark);
 }
+
 footer nav a {
   padding: 0.4em 0.2em;
 }
+
 footer article {
   padding: 1em;
   color: white;
 }
+
 footer article ul {
   margin-left: 1.4em;
 }
+
 footer article [class^=icon-] {
   margin-left: -1.6em;
 }
+
 footer article h2 {
   margin-bottom: 0.8em;
 }
+
 footer article a {
   color: white;
 }
+
 footer article a:hover {
   text-decoration: underline;
 }
@@ -738,6 +768,7 @@ footer article a:hover {
   from {
     transform: rotateY(-20deg);
   }
+
   to {
     transform: rotateY(-380deg);
   }

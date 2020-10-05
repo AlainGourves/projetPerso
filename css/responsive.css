@@ -1,10 +1,12 @@
 @charset "UTF-8";
+
 /* Responsive shit */
 @media (min-width: 530px) {
   #navGal {
     width: 426px;
   }
 }
+
 /* -------------------- Medium devices (tablets, 768px and up) -------------------- */
 @media (min-width: 768px) {
   .nav-toggle-label {
@@ -35,7 +37,7 @@
   }
 
   #menu nav a::after,
-footer nav a::after {
+  footer nav a::after {
     content: "";
     display: block;
     position: absolute;
@@ -49,10 +51,10 @@ footer nav a::after {
   }
 
   #menu nav a:hover::after,
-#menu nav a:focus::after,
-#menu nav a.selected::after,
-footer nav a:hover::after,
-footer nav a:focus::after {
+  #menu nav a:focus::after,
+  #menu nav a.selected::after,
+  footer nav a:hover::after,
+  footer nav a:focus::after {
     transform: scale(1, 1);
   }
 
@@ -61,9 +63,11 @@ footer nav a:focus::after {
     bottom: initial;
     top: 2em;
   }
+
   .hero h1 {
     font-size: 3.6em;
   }
+
   .hero h2 {
     font-size: 3.4em;
   }
@@ -76,6 +80,7 @@ footer nav a:focus::after {
     width: 40%;
     max-width: 350px;
   }
+
   .topic .date {
     position: absolute;
     display: block;
@@ -87,20 +92,25 @@ footer nav a:focus::after {
     background-color: var(--bleuLight);
     text-align: center;
   }
+
   .topic:nth-of-type(2n) {
     left: 50%;
     transform: translateX(18%);
   }
+
   .topic:nth-of-type(2n)::after {
     left: calc(-18% + 3px);
   }
+
   .topic:nth-of-type(2n) .date {
     right: 140%;
   }
+
   .topic:nth-of-type(2n+1) {
     left: 50%;
     transform: translateX(-118%);
   }
+
   .topic:nth-of-type(2n+1)::before {
     border-style: solid;
     right: -14px;
@@ -108,10 +118,12 @@ footer nav a:focus::after {
     border-color: transparent transparent transparent var(--bleu2);
     border-width: 8px 0 8px 14px;
   }
+
   .topic:nth-of-type(2n+1)::after {
     right: calc(-18% - 15px);
     left: initial;
   }
+
   .topic:nth-of-type(2n+1) .date {
     left: 140%;
   }
@@ -125,10 +137,12 @@ footer nav a:focus::after {
     justify-content: space-around;
     align-items: center;
   }
+
   footer nav a {
     position: relative;
   }
 }
+
 /* -------------------- Large devices (desktops, 992px and up) -------------------- */
 @media (min-width: 992px) {
   html {
@@ -138,6 +152,7 @@ footer nav a:focus::after {
   .hero h1 {
     font-size: 4em;
   }
+
   .hero h2 {
     font-size: 3.8em;
   }
@@ -148,13 +163,16 @@ footer nav a:focus::after {
     justify-content: space-between;
     align-items: flex-start;
   }
+
   #batiment article {
     width: 50%;
   }
+
   #batiment article:first-of-type {
     order: 2;
   }
 }
+
 /* -------------------- Extra large devices (large desktops, 1200px and up  ------- */
 @media (min-width: 1200px) {
   html {
@@ -169,6 +187,7 @@ footer nav a:focus::after {
   .hero h1 {
     font-size: 5em;
   }
+
   .hero h2 {
     font-size: 4.8em;
   }
