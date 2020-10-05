@@ -74,7 +74,7 @@ footer nav a:focus::after {
   .topic .date {
     position: absolute;
     display: block;
-    width: 6em;
+    max-width: 14ch;
     top: 50%;
     transform: translateY(-50%);
     padding: 0.5em 0.8em;
@@ -87,7 +87,7 @@ footer nav a:focus::after {
     transform: translateX(18%);
   }
   .topic:nth-of-type(2n)::after {
-    left: calc(-18% - 6px);
+    left: calc(-18% + 3px);
   }
   .topic:nth-of-type(2n) .date {
     right: 140%;
@@ -104,7 +104,7 @@ footer nav a:focus::after {
     border-width: 8px 0 8px 14px;
   }
   .topic:nth-of-type(2n+1)::after {
-    right: calc(-18% - 6px);
+    right: calc(-18% - 15px);
     left: initial;
   }
   .topic:nth-of-type(2n+1) .date {

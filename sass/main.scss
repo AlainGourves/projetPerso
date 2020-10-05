@@ -10,6 +10,7 @@
 *   - MENU BAR
 *   -- Burger
 *   - MAIN
+*   -- Scene3D
 *   -- Timeline
 *   - CAROUSEL
 *   - FOOTER
@@ -38,10 +39,14 @@
     --pruneLight: hsl(306, 30%, 48%);
     --pruneDark: hsl(326, 49%, 42%);
     
-    --degMetal1: linear-gradient(75deg, var(--grisDark) var(--grisLight) 40%, var(--bleuLight) 60%, var(--grisDark));
-    --degMetal1: linear-gradient(-90deg, var(--grisDark) var(--grisLight) 40%, var(--bleuLight) 60%, var(--grisDark));
+    --degMetal1: linear-gradient(75deg, var(--grisDark), var(--grisLight) 40%, var(--bleuLight) 60%, var(--grisDark));
+    --degMetal2: linear-gradient(-40deg, var(--grisDark), var(--grisLight) 40%, var(--bleuLight) 60%, var(--grisDark));
 
     --rebond : cubic-bezier(.33, 0, .7, 1.5);
+
+    --racine: .433; /* (racine de 3)/4: demi hauteur du triangle */
+    --largCol: 16em;
+    --largColHaut: calc((var(--largCol) * 13) / 26); /* rapport de la base au sommet */
 }
 
 
@@ -351,9 +356,6 @@ nav ul {
 ---------------------------------------------------------------------------- MAIN
 */
 
-// main{
-// }
-
 .contenu {
     background-color: white;
 }
@@ -361,6 +363,10 @@ nav ul {
 section{
     position: relative;
     padding: 8em 10vw;
+
+    p{
+        margin-bottom: 1em;
+    }
 }
 
 section::after {
@@ -402,10 +408,140 @@ main picture img {
     object-position: center bottom;
 }
 
+/*  -------------------------------------------------------------- Scene3D */
+.animArche{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    max-height: 100%;
+    perspective: 30em;
+    perspective-origin: 50% 25%;
+    margin: 10em auto 2em;
+
+}
+
+/* point perspective origin /
+.animArche::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    left: 50%;
+    top: 25%;
+    border: 4px solid green;
+    border-radius: 50%;
+    z-index: 1000;
+}
+*/
+.scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform:  rotateY(-20deg);
+    transform-style: preserve-3d;
+    text-rendering: optimizeLegibility;
+    animation: animRotation 8s linear infinite paused;
+}
+
+.troncon,
+.grass{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transform-style: preserve-3d;
+}
+
+.tron2{
+    transform: translate3d(calc(var(--largColHaut)/-2), -10em, -10em);
+}
+
+.side{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.tron1 .side1 {
+    transform: translateZ(calc(var(--largCol) * var(--racine)));
+}
+.tron1 .side2 {
+    transform: translateX(calc(var(--largCol) / 4)) rotateY(-60deg);
+}
+.tron1 .side3 {
+    transform: translateX(calc(var(--largCol) / -4)) rotateY(60deg);
+}
+
+
+.tron2 .side1 {
+    transform: translateY(calc(-1 * var(--largColHaut) * var(--racine))) rotateX(90deg);
+}
+.tron2 .side2 {
+    transform: translateX(calc(var(--largColHaut) / 4)) rotateX(90deg) rotateY(-60deg);
+}
+.tron2 .side3 {
+    transform: translateX(calc(var(--largColHaut) / -4)) rotateX(90deg) rotateY(240deg);
+}
+
+.tron1 .side{
+    width: var(--largCol);
+    height: calc(var(--largCol) / 3);
+    background-image:   repeating-linear-gradient(to top, rgba(0, 0, 0, .125) 50%, transparent),
+                        repeating-linear-gradient(to right, rgba(0, 0, 0, .125), transparent 33%),
+                        var(--degMetal1);
+}
+
+.tron2 .side{
+    width: var(--largColHaut);
+    height: calc(var(--largColHaut) / 3);
+    background-image:   linear-gradient(to top, rgba(0, 0, 0, .125), transparent),
+                        repeating-linear-gradient(to right, rgba(0, 0, 0, .125), transparent 50%),
+                        var(--degMetal2);
+}
+
+.larg {
+    font-weight: 500;
+    color: var(--pruneDark);
+    text-align: center;
+}
+
+.tron1 .larg{
+    transform: translateZ(calc(var(--largCol) * var(--racine))) translateY(-2em);
+    width: var(--largCol);
+}
+.tron2 .larg{
+    transform: translateY(calc(-1 * (var(--largColHaut) * var(--racine) + 1em)));
+    width: var(--largColHaut);
+}
+
+.grass{
+    width: var(--largCol);
+    height: var(--largCol);
+    transform-origin: top left;
+    transform:  rotateX(90deg) 
+                translate(-55%, -50%)
+                translateZ(calc(var(--largCol) / -3))
+                scale(1.1);
+    background: var(--vertDark);
+    border-radius: 3em;
+}
+
+#btnPlay {
+    position: absolute;
+    display: block;
+    right: 6em;
+    bottom: -2em;
+    font-size: 2.5em;
+    color: var(--pruneDark);
+    z-index: 10;
+}
+
 /*  -------------------------------------------------------------- Timeline */
 
 .timeline{
-    position: relative;
     width: 100%;
     height: 33vh;
     overflow: hidden auto;
@@ -430,6 +566,10 @@ main picture img {
     z-index: 3;
     background-color: var(--bleu2);
 
+    &:last-of-type{
+        margin-bottom: 3em;
+    }
+
     p{
         margin-top: .4em;
     }
@@ -437,7 +577,7 @@ main picture img {
     .date{
         position: absolute;
         display: inline-block;
-        top: -2rem;
+        top: -2em;
         width: 100%;
         margin-left: -1em;
         font-weight: 500;
@@ -478,7 +618,8 @@ main picture img {
 ---------------------------------------------------------------------------- CAROUSEL
 */
 #gallery{
-    width: 426px;
+    width: 100%;
+    max-width: 426px;
     height: 400px;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
@@ -487,44 +628,53 @@ main picture img {
 
 .gallery-img{
     width: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
     scroll-snap-align: start;
 }
 
-#navGal ul{
-    list-style-type: none;
-    background-color: rgb(33,33,33);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    padding: .3rem .6rem;
+#navGal {
+
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    ul{
+        list-style-type: none;
+        background-color: var(--grisDark);
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+    }
+    
+    li,
+    a{
+        display: inline-block;
+        border-radius: 4px;
+    }
+    
+    li{
+        justify-self: center;
+        align-self: center;
+        padding: .2em;
+    }
+
+    a{
+        width: 60px;
+        height: 60px;
+        background-image: url(../img/carousel/gallery-thumbs.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(.7);
+        transition: all .5s;
+    }
+    
+    a:hover,
+    a:focus,
+    a.selected{
+        filter: brightness(1) sepia(1) hue-rotate(180deg);
+        box-shadow: 0 0 1px 2px hsla(0, 0%, 100%, 0.85);
+    }
 }
-
-
-#navGal li,
-#navGal a{
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    border-radius: 4px;
-}
-
-#navGal a{
-    background-image: url(../img/carousel/gallery-thumbs.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    filter: brightness(.7);
-    transition: all .5s;
-}
-
-#navGal a:hover,
-#navGal a:focus,
-#navGal a.selected{
-    filter: brightness(1) sepia(1) hue-rotate(180deg);
-    box-shadow: 0 0 1px 2px hsla(0, 0%, 100%, 0.85);
-}
-
 
 #navGal li:nth-of-type(1) a{
     background-position-x:calc(540 / 9 * -0px);
@@ -553,6 +703,7 @@ main picture img {
 #navGal li:nth-of-type(9) a{
     background-position-x:calc(540 / 9 * -8px);
 }
+
 /*
 ---------------------------------------------------------------------------- FOOTER
 */
@@ -600,19 +751,18 @@ footer{
 #references li{
     margin-bottom: .25em
 }
+
 /*
 ---------------------------------------------------------------------------- ANIMATION
 */
 
-/* ----------------- A VOIR -------------
 
-
-h1{
-    font-size: 5rem;
-    background-image: linear-gradient(to bottom, rgb(94, 145, 193), rgb(161, 12, 199));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
+@keyframes animRotation {
+    from {
+        transform: rotateY(-20deg);
+    }
+    
+    to {
+        transform: rotateY(-380deg);
+    }
 }
---------------------------  */
