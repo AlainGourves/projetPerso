@@ -146,6 +146,24 @@ section p {
   font-size: 1em;
   color: var(--grisDark);
 }
+
+/* Lettrine */
+section h1 + p:first-letter {
+  font-size: 4em;
+  line-height: 1;
+  float: left;
+  margin: 0.2em .1em 0 0;
+  font-family: "Righteous";
+}
+
+section:nth-of-type(2n) h1 + p:first-letter {
+  color: var(--vertDark);
+}
+
+section:nth-of-type(2n +1) h1 + p:first-letter {
+  color: var(--bleuDark);
+}
+
 section em {
   font-weight: 600;
   font-style: normal;
